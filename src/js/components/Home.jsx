@@ -9,7 +9,8 @@ const Home = () => {
 	const [colorRed, setColorRed] = useState("btn-danger opacity-25");
 	const [colorYellow, setColorYellow] = useState("btn-warning opacity-25");
 	const [colorGreen, setColorGreen] = useState("btn-success opacity-25");
-	const [aleatorio, setAleatorio] = useState("colorRed")
+	const [colorBlue, setColorBlue] = useState("btn-primary");
+	const [boton,setBoton] = useState (false)
 
 	const colorRojo = () => {
 		if (colorRed === "btn-danger opacity-25") {
@@ -35,12 +36,46 @@ const Home = () => {
 		}
 	};
 
-	function coloresAl(){
-	const aleatorizar = ["coloRed", "colorYellow", "colorGreen"];
-	const inicioAleatorio = Math.floor(Math.random()* aleatorizar.length);
-	const mostrarAleatorio = aleatorizar[inicioAleatorio];
-	console.log(mostrarAleatorio);
-    }
+	const colorAzul = () => {
+		if (colorBlue === "btn-primary opacity-25") {
+			setColorBlue("btn-primary");
+		} else {
+			setColorblue("btn-primary opacity-25");
+		}
+	};
+
+	function coloresAl() {
+		const aleatorizar = Math.floor(Math.random() * 3);
+
+		if (aleatorizar === 0) {
+			setColorRed("btn-danger");
+			setColorYellow("btn-warning opacity-25");
+			setColorGreen("btn-success opacity-25");
+		} else if (aleatorizar === 1) {
+			setColorRed("btn-danger opacity-25");
+			setColorYellow("btn-warning");
+			setColorGreen("btn-success opacity-25");
+		} else {
+			setColorRed("btn-danger opacity-25");
+			setColorYellow("btn-warning opacity-25");
+			setColorGreen("btn-success");
+		}
+	}
+
+	function colorExtra() {
+		if (boton === true) {
+			return (
+				<button
+					type="button"
+					className={`btn ${colorBlue} mt-5 mx-4 rounded-circle`}
+					style={{ height: "80px" }}
+					onClick={colorAzul}
+				></button>
+			);
+		}
+		return null;
+	}
+	
 
 
 	return (
@@ -55,11 +90,18 @@ const Home = () => {
 						</button>
 						<button type="button" className={`btn ${colorGreen} mt-5 mx-4 rounded-circle`} style={{ height: "80px" }} onClick={colorVerde}>
 						</button>
+
 					</div>
 				</div>
 			</div>
 			<div className="d-flex align-items-center">
-			<button type="button" className="btn btn-outline-info" onClick={coloresAl}>Cambia el color</button>
+				<button type="button" className="btn btn-outline-info" onClick={coloresAl}>Cambia el color</button>
+			</div>
+			<div>
+				<button type="button" className="btn btn-outline-purple ms-3" onClick={colorExtra}>
+					Añadir luz azul
+				</button>
+
 			</div>
 		</div>
 	);
