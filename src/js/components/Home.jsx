@@ -62,21 +62,9 @@ const Home = () => {
 		}
 	}
 
-	function colorExtra() {
-		if (boton === true) {
-			return (
-				<button
-					type="button"
-					className={`btn ${colorBlue} mt-5 mx-4 rounded-circle`}
-					style={{ height: "80px" }}
-					onClick={colorAzul}
-				></button>
-			);
-		}
-		return null;
-	}
-	
-
+	const colorExtra = () => {
+		setBoton(true);
+	};
 
 	return (
 		<div className="d-flex justify-content-evenly">
@@ -90,7 +78,9 @@ const Home = () => {
 						</button>
 						<button type="button" className={`btn ${colorGreen} mt-5 mx-4 rounded-circle`} style={{ height: "80px" }} onClick={colorVerde}>
 						</button>
-
+                        {boton && (
+							<button type="button" className={`btn ${colorBlue} mt-5 mx-4 rounded-circle`} style={{ height: "80px" }} onClick={colorAzul}></button>
+						)}
 					</div>
 				</div>
 			</div>
