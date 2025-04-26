@@ -63,14 +63,14 @@ const Home = () => {
 	}
 
 	const colorExtra = () => {
-		setBoton(true);
+		setBoton(prev => !prev);
 	};
 
 	return (
 		<div className="d-flex justify-content-evenly">
 			<div className="d-flex flex-column align-items-center justify-content-center mt-5">
-				<div className="bg-dark" style={{ width: "30px", height: "90px" }}></div>
-				<div className="bg-dark" style={{ width: "150px", height: "450px" }}>
+				<div className="bg-dark" style= {{ width: "30px", height: "90px" }}></div>
+				<div className="bg-dark" style={{ width: "150px", height: "auto", paddingBottom: "20px" }}>
 					<div className="d-flex flex-column" aria-label="Basic mixed styles example">
 						<button type="button" className={`btn ${colorRed} mt-5 mx-4 rounded-circle`} style={{ height: "80px" }} onClick={colorRojo}>
 						</button>
@@ -84,14 +84,12 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<div className="d-flex align-items-center">
+			<div className="d-flex align-items-center inline-block">
 				<button type="button" className="btn btn-outline-info" onClick={coloresAl}>Cambia el color</button>
-			</div>
-			<div>
-				<button type="button" className="btn btn-outline-purple ms-3" onClick={colorExtra}>
+			
+				<button type="button" className="btn btn-outline-success ms-5" onClick={colorExtra}>
 					Añadir luz azul
 				</button>
-
 			</div>
 		</div>
 	);
